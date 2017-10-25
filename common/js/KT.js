@@ -43,20 +43,20 @@ $(function() {
 	$('#dev-month_SSDL').click( function () {devList(_startM)})
 	$('#dev_date_ZSJ').click(function () {devList(_startD);})
 	$('#dev_month_ZSJ').click(function () {devList(_startM);})
-	$('#dev_date_AxDY').click(function () {devList(_startD);})
-	$('#dev_month_AxDY').click(function () {devList(_startM);})
-	$('#dev_date_AxDL').click(function () {devList(_startD);})
-	$('#dev_month_AxDL').click(function () {devList(_startM);})
-	$('#dev_date_AxGL').click(function () {devList(_startD);})
-	$('#dev_month_AxGL').click(function () {devList(_startM);})
-	$('#dev_date_GL').click(function () {devList(_startD);});
-	$('#dev_month_GL').click(function () {devList(_startM);})
-	$('#dev_date_SSAxDY').click(function () {devList(_startD);})
-	$('#dev_month_SSAxDY').click(function () {devList(_startM);})
-	$('#dev_date_SSAxDL').click(function () {devList(_startD);})
-	$('#dev_month_SSAxDL').click(function () {devList(_startM);})
-	$('#dev_date_SSAxGL').click(function () {devList(_startD);});
-	$('#dev_month_SSAxGL').click(function () {devList(_startM);})
+//	$('#dev_date_AxDY').click(function () {devList(_startD);})
+//	$('#dev_month_AxDY').click(function () {devList(_startM);})
+//	$('#dev_date_AxDL').click(function () {devList(_startD);})
+//	$('#dev_month_AxDL').click(function () {devList(_startM);})
+//	$('#dev_date_AxGL').click(function () {devList(_startD);})
+//	$('#dev_month_AxGL').click(function () {devList(_startM);})
+//	$('#dev_date_GL').click(function () {devList(_startD);});
+//	$('#dev_month_GL').click(function () {devList(_startM);})
+//	$('#dev_date_SSAxDY').click(function () {devList(_startD);})
+//	$('#dev_month_SSAxDY').click(function () {devList(_startM);})
+//	$('#dev_date_SSAxDL').click(function () {devList(_startD);})
+//	$('#dev_month_SSAxDL').click(function () {devList(_startM);})
+//	$('#dev_date_SSAxGL').click(function () {devList(_startD);});
+//	$('#dev_month_SSAxGL').click(function () {devList(_startM);})
 	function devList (start) {
 		var eleAryE = [];
 		var eleAry = [];
@@ -86,18 +86,9 @@ $(function() {
 				var con1 = data.data;
 				var device1 = [con1[3], con1[4], con1[7], con1[10], con1[12], con1[11], con1[8], con1[2], con1[1], con1[0], con1[9], con1[6], con1[15], con1[5], con1[13], con1[14]];
 
-//				 console.log(device1);
+				console.log(device1);
 				var allele;
 				var sumall = 0;
-				var sumSSAxDY = 0;
-				var sumSSBxDY = 0;
-				var sumSSCxDY = 0;
-				var sumSSAxDL = 0;
-				var sumSSBxDL = 0;
-				var sumSSCxDL = 0;
-				var sumSSAxGL = 0;
-				var sumSSBxGL = 0;
-				var sumSSCxGL = 0;
 				for(var j = 0; j < 16; j++) {
 					allele = parseInt(device1[j].bzRecord.data.split(",")[0]);
 					eleAryE.push(allele);
@@ -105,9 +96,73 @@ $(function() {
 				}
 				
 				for(var j = 0; j < 16; j++) {
-					allYGGL = parseInt(device1[j].bzRecord.data.split(",")[1]);
+					allYGGL = parseFloat(device1[j].bzRecord.data.split(",")[1]).toFixed(1);
 					eleYGGL.push(allYGGL);
 				}
+				
+				for(var j = 0; j < 16; j++) {
+					allGLYS = parseInt(device1[j].bzRecord.data.split(",")[14]);
+					eleGLYS.push(allGLYS);
+				}
+				
+				
+				for(var j = 0; j < 16; j++) {
+					allAxDY = parseFloat(device1[j].bzRecord.data.split(",")[2]);
+					eleAxDY.push(allAxDY);
+				}
+				
+				
+				for(var j = 0; j < 16; j++) {
+					allBxDY = parseFloat(device1[j].bzRecord.data.split(",")[3]);
+					eleBxDY.push(allBxDY);
+				}
+				
+				for(var j = 0; j < 16; j++) {
+					allCxDY = parseFloat(device1[j].bzRecord.data.split(",")[4]);
+					eleCxDY.push(allCxDY);
+				}
+				
+				for(var j = 0; j < 16; j++) {
+					allAxDL = parseFloat(device1[j].bzRecord.data.split(",")[5]);
+					eleAxDL.push(allAxDL);
+				}
+
+				for(var j = 0; j < 16; j++) {
+					allBxDL = parseFloat(device1[j].bzRecord.data.split(",")[6]);
+					eleBxDL.push(allBxDL);
+				}
+			
+				for(var j = 0; j < 16; j++) {
+					allCxDL = parseFloat(device1[j].bzRecord.data.split(",")[7]);
+					eleCxDL.push(allCxDL);
+				}
+				
+				for(var j = 0; j < 16; j++) {
+					allAxGL = parseFloat(device1[j].bzRecord.data.split(",")[8]);
+					eleAxGL.push(allAxGL);
+				}
+
+				for(var j = 0; j < 16; j++) {
+					allBxGL = parseFloat(device1[j].bzRecord.data.split(",")[9]);
+					eleBxGL.push(allBxGL);
+				}
+				
+				for(var j = 0; j < 16; j++) {
+					allCxGL = parseFloat(device1[j].bzRecord.data.split(",")[10]);
+
+					eleCxGL.push(allCxGL);
+				}
+				
+				dev4(eleYGGL)
+				dev5(eleAxDY,eleBxDY,eleCxDY)
+				
+				dev7(eleAxDL,eleBxDL,eleCxDL)
+				dev9(eleAxDL,eleBxDL,eleCxDL)
+				
+				dev6(eleAxDY,eleBxDY,eleCxDY)
+				dev8(eleAxGL,eleBxGL,eleCxGL)
+				dev10(eleAxGL,eleBxGL,eleCxGL)
+				
 		
 				//开始时间用电量
 				$.ajax({
@@ -133,75 +188,75 @@ $(function() {
 						
 						
 						
-						for(var j = 0; j < 16; j++) {
-							allGLYS = parseInt(device1[j].bzRecord.data.split(",")[14]);
-							eleGLYS.push(allGLYS);
-						}
+//						for(var j = 0; j < 16; j++) {
+//							allGLYS = parseInt(device1[j].bzRecord.data.split(",")[14]);
+//							eleGLYS.push(allGLYS);
+//						}
 						
 						
-						for(var j = 0; j < 16; j++) {
-							allAxDY = parseFloat(device1[j].bzRecord.data.split(",")[2]);
-							allAxDY = allAxDY.toFixed(1);
-							sumSSAxDY += parseInt(allAxDY/16);
-							eleAxDY.push(allAxDY);
-						}
+//						for(var j = 0; j < 16; j++) {
+//							allAxDY = parseFloat(device1[j].bzRecord.data.split(",")[2]);
+//							allAxDY = allAxDY.toFixed(1);
+//							sumSSAxDY += parseInt(allAxDY/16);
+//							eleAxDY.push(allAxDY);
+//						}
+//						
+//						
+//						for(var j = 0; j < 16; j++) {
+//							allBxDY = parseFloat(device1[j].bzRecord.data.split(",")[3]);
+//							allBxDY = allBxDY.toFixed(1);
+//							sumSSBxDY += parseInt(allBxDY/16);
+//							eleBxDY.push(allBxDY);
+//						}
+//						
+//						for(var j = 0; j < 16; j++) {
+//							allCxDY = parseFloat(device1[j].bzRecord.data.split(",")[4]);
+//							allCxDY = allCxDY.toFixed(1);
+//							sumSSCxDY += parseInt(allCxDY/16);
+//							eleCxDY.push(allCxDY);
+//						}
 						
-						
-						for(var j = 0; j < 16; j++) {
-							allBxDY = parseFloat(device1[j].bzRecord.data.split(",")[3]);
-							allBxDY = allBxDY.toFixed(1);
-							sumSSBxDY += parseInt(allBxDY/16);
-							eleBxDY.push(allBxDY);
-						}
-						
-						for(var j = 0; j < 16; j++) {
-							allCxDY = parseFloat(device1[j].bzRecord.data.split(",")[4]);
-							allCxDY = allCxDY.toFixed(1);
-							sumSSCxDY += parseInt(allCxDY/16);
-							eleCxDY.push(allCxDY);
-						}
-						
-						for(var j = 0; j < 16; j++) {
-							allAxDL = parseFloat(device1[j].bzRecord.data.split(",")[5]);
-							allAxDL = allAxDL.toFixed(1);
-							sumSSAxDL += parseInt(allAxDL/16);
-							eleAxDL.push(allAxDL);
-						}
+//						for(var j = 0; j < 16; j++) {
+//							allAxDL = parseFloat(device1[j].bzRecord.data.split(",")[5]);
+//							allAxDL = allAxDL.toFixed(1);
+//							sumSSAxDL += parseInt(allAxDL/16);
+//							eleAxDL.push(allAxDL);
+//						}
 
-						for(var j = 0; j < 16; j++) {
-							allBxDL = parseFloat(device1[j].bzRecord.data.split(",")[6]);
-							allBxDL = allBxDL.toFixed(1);
-							sumSSBxDL += parseInt(allBxDL/16);
-							eleBxDL.push(allBxDL);
-						}
-						
-						for(var j = 0; j < 16; j++) {
-							allCxDL = parseFloat(device1[j].bzRecord.data.split(",")[7]);
-							allCxDL = allCxDL.toFixed(1);
-							sumSSCxDL += parseInt(allCxDL/16);
-							eleCxDL.push(allCxDL);
-						}
-						
-						for(var j = 0; j < 16; j++) {
-							allAxGL = parseFloat(device1[j].bzRecord.data.split(",")[8]);
-							allAxGL = allAxGL.toFixed(1);
-							sumSSAxGL += parseInt(allAxGL/16);
-							eleAxGL.push(allAxGL);
-						}
-
-						for(var j = 0; j < 16; j++) {
-							allBxGL = parseFloat(device1[j].bzRecord.data.split(",")[9]);
-							allBxGL = allBxGL.toFixed(1);
-							sumSSBxGL += parseInt(allBxGL/16);
-							eleBxGL.push(allBxGL);
-						}
-						
-						for(var j = 0; j < 16; j++) {
-							allCxGL = parseFloat(device1[j].bzRecord.data.split(",")[10]);
-							allCxGL = allCxGL.toFixed(1);
-							sumSSCxGL += parseInt(allCxGL/16);
-							eleCxGL.push(allCxGL);
-						}
+//						for(var j = 0; j < 16; j++) {
+//							allBxDL = parseFloat(device1[j].bzRecord.data.split(",")[6]);
+//							allBxDL = allBxDL.toFixed(1);
+//							sumSSBxDL += parseInt(allBxDL/16);
+//							eleBxDL.push(allBxDL);
+//						}
+//						
+//						for(var j = 0; j < 16; j++) {
+//							allCxDL = parseFloat(device1[j].bzRecord.data.split(",")[7]);
+//							allCxDL = allCxDL.toFixed(1);
+//							sumSSCxDL += parseInt(allCxDL/16);
+//							eleCxDL.push(allCxDL);
+//						}
+//						
+//						for(var j = 0; j < 16; j++) {
+//							allAxGL = parseFloat(device1[j].bzRecord.data.split(",")[8]);
+//							allAxGL = allAxGL.toFixed(1);
+//							sumSSAxGL += parseInt(allAxGL/16);
+//							eleAxGL.push(allAxGL);
+//						}
+//
+//						for(var j = 0; j < 16; j++) {
+//							allBxGL = parseFloat(device1[j].bzRecord.data.split(",")[9]);
+//							allBxGL = allBxGL.toFixed(1);
+//							sumSSBxGL += parseInt(allBxGL/16);
+//							eleBxGL.push(allBxGL);
+//						}
+//						
+//						for(var j = 0; j < 16; j++) {
+//							allCxGL = parseFloat(device1[j].bzRecord.data.split(",")[10]);
+//							allCxGL = allCxGL.toFixed(1);
+//							sumSSCxGL += parseInt(allCxGL/16);
+//							eleCxGL.push(allCxGL);
+//						}
 						
 						if(eleAry.length > 0 || eleAryM.length > 0) {
 							for(var i = 0; i < 16; i++) {
@@ -219,16 +274,11 @@ $(function() {
 						
 						allZYDL = allZYD.pop();
 	
-						//柱形图和饼形图
+					
 						dev1(eleAry);
 						dev3(eleAry,eleYGGL,eleGLYS,allZYD);
-						dev4(eleYGGL)
-						dev5(eleAxDY,eleBxDY,eleCxDY)
-						dev6(sumSSAxDY,sumSSBxDY,sumSSCxDY)
-						dev7(eleAxDL,eleBxDL,eleCxDL)
-						dev8(eleAxGL,eleBxGL,eleCxGL)
-						dev9(sumSSAxDL,sumSSBxDL,sumSSCxDL)
-						dev10(sumSSAxGL,sumSSBxGL,sumSSCxGL)
+						
+						
 						var sort = eleAry.sort(function(a, b) {
 							return a - b;
 						})
@@ -448,7 +498,6 @@ $(function() {
 		    ]
 		};
 		                    
-	
 		myChart3.setOption(option3);
 	}
 	
@@ -529,9 +578,8 @@ $(function() {
 			yAxis: [{
 				type: 'value',
 				splitNumber:10,
-				axisLine: {
-			
-				},
+				min: '210',
+				max: '250',
 				axisLabel: {
 					margin: 10,
 					textStyle: {
