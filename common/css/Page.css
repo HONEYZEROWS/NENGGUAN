@@ -1,0 +1,7 @@
+.top_top{margin-bottom: 10px; height: 40px;}
+.top_top p{width: 100%;background-color:rgba(177, 178, 179, 0.73);color: #063335; height: 40px; line-height: 40px;}
+.tops p{width: 100%;height: 300px; line-height: 300px; text-align: center; font-size: 18px}
+.topOne, .topTwo, .topThree, #main, #main1, #main2, #main3{width: 100%; height: 300px;}
+.topOne{background:rgba(0,0,0,0.06) url(../images/dl1_03.png) no-repeat center}
+.topTwo{background:rgba(0,0,0,0.06) url(../images/dl3_03.png) no-repeat center}
+.topThree{background:rgba(0,0,0,0.06) url(../images/dl2_03.png) no-repeat center}

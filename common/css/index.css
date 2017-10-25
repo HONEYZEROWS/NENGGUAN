@@ -1,0 +1,29 @@
+.contenttop{min-height: 220px;  text-align: center;}
+.contenttopDiv{width: 160px;height: 180px;position: relative; margin: auto;}
+.borderani, .borderani::before, .borderani::after { text-align: center; position: absolute;top: 0;bottom: 0;left: 0;right: 0;}
+.borderani{width: 160px;height: 160px;margin: 20px 0 0 0;color: #0f4e52;box-shadow: inset 0 0 0 1px rgba(6, 51, 53, 0.77);}
+.borderani::before, .borderani::after {content: '';margin: -5%;box-shadow: inset 0 0 2px 2px;animation: clipMe 8s linear infinite;}
+.borderani::before {animation-delay: -4s;}
+@keyframes clipMe {
+		0%, 100% {clip: rect(0px, 180.0px, 2px, 0px);}
+		25% {clip: rect(0px, 2px, 180.0px, 0px);}
+		50% {clip: rect(170px, 180.0px, 180.0px, 0px);}
+		75% {clip: rect(0px, 180.0px, 180.0px, 170.0px);}
+}
+.contenttop h5, .content p{color: black; }
+.contenttop h5{font-size: 16px; margin-top: 25%;}
+.contenttop p{font-size: 22px; font-weight: bold; color: #0f4e52;}
+.content-wrapper .PDSImg{width: 100%; text-align: right;}
+.content-wrapper>div>input{margin: 10px 10px 0 0;}
+
+.contentbottom{text-align: center;}
+.contentbottom .contentbottomleft input, .contentbottomright input{width: 10%; margin-bottom: 10px;}
+.contentbottom  .contentbottomright input{width: 15%;}
+#main, #main1,#main2, #main3{width: 100%; height: 270px;}
+
+.contentbottom .contentbottomAll{text-align: left;height: 40px; background-color:rgba(177, 178, 179, 0.73); margin-bottom: 10px;}
+.contentbottom p{display: inline-block; float: left; width: 70%; line-height: 40px; text-indent: 4px; color: #063335; font-size: 16px}
+.contentbottom p i{margin-right: 4px;}
+.contentbottom .contentbottomButton{float: left; width: 30%; height: 40px; padding-right: 4px;}
+.contentbottom .contentbottomleft input, .contentbottomright input{margin-left: 4px;color: #063335;margin-top: 5px;display: inline-block;width: 30%; height: 30px;margin-bottom: 10px; float: right;}
+.contentbottom .contentbottomright input{margin-top: 5px;display: inline-block;width: 40%; height: 30px;margin-bottom: 10px; float: right;}
